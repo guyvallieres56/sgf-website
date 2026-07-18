@@ -1,0 +1,263 @@
+/* ============================================================
+   SGF — Shared Stylesheet
+   Extends the existing single-page design system into a
+   chapter-based journey. Tokens below match the original
+   index.html exactly; do not introduce new colors casually.
+   ============================================================ */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --forest:   #1B5E3A;
+  --sage:     #2E7D52;
+  --earth:    #4A3728;
+  --sky:      #1B3A6B;
+  --cream:    #FAF8F3;
+  --parchment:#F0EBE0;
+  --dark:     #1A1A1A;
+  --mid:      #4A4A4A;
+  --light:    #8A8A8A;
+  --rule:     #C8BFA8;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--cream);
+  color: var(--dark);
+  line-height: 1.7;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--sage); outline-offset: 3px; }
+
+/* ── UTILITY BAR (persistent: Documents / Forms / Donate) ── */
+.util-bar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 200;
+  background: rgba(250,248,243,0.97);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--rule);
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.75rem;
+}
+.util-brand {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--forest);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+.util-links {
+  display: flex;
+  gap: 1.75rem;
+  list-style: none;
+}
+.util-links a {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--mid);
+  transition: color 0.2s;
+}
+.util-links a:hover { color: var(--sage); }
+.util-links a.donate-link { color: var(--earth); }
+.util-links a.donate-link:hover { color: var(--forest); }
+
+/* ── CONTOUR SIGNATURE MOTIF ──
+   A faint topographic contour pattern — a quiet nod to 36 years
+   of flood/drought hydrology work. Used once per page, restrained. */
+.contour-field {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+.contour-field svg { width: 100%; height: 100%; opacity: 0.07; }
+
+/* ── CHAPTER STAGE ── */
+.chapter-stage {
+  position: relative;
+  min-height: 100vh;
+  padding: 8.5rem 2rem 7rem;
+  display: flex;
+  align-items: center;
+}
+.chapter-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1180px;
+  margin: 0 auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 4rem;
+  align-items: start;
+}
+.chapter-stage.reverse .chapter-inner { direction: rtl; }
+.chapter-stage.reverse .chapter-text,
+.chapter-stage.reverse .chapter-frames { direction: ltr; }
+
+.chapter-eyebrow {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--sage);
+  margin-bottom: 1.25rem;
+}
+.chapter-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.9rem, 3.6vw, 2.9rem);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--dark);
+  margin-bottom: 1.5rem;
+}
+.chapter-title em { color: var(--forest); font-style: italic; }
+.chapter-text p {
+  font-size: 1.02rem;
+  color: var(--mid);
+  margin-bottom: 1.2rem;
+  max-width: 54ch;
+}
+.chapter-text p.lede {
+  font-size: 1.18rem;
+  color: var(--dark);
+  font-weight: 500;
+}
+.chapter-pull {
+  border-left: 3px solid var(--sage);
+  padding: 0.3rem 0 0.3rem 1.25rem;
+  margin: 1.75rem 0;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1.08rem;
+  color: var(--forest);
+}
+
+/* ── IMAGE PLACEHOLDER FRAMES ── */
+.chapter-frames {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.img-frame {
+  border: 1px solid var(--rule);
+  background: var(--parchment);
+  border-radius: 2px;
+  aspect-ratio: 4 / 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+  position: relative;
+}
+.img-frame::before {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border: 1px dashed var(--rule);
+}
+.img-frame-label {
+  position: relative;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  color: var(--light);
+  line-height: 1.5;
+}
+.img-frame-tag {
+  display: block;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--sage);
+  margin-bottom: 0.4rem;
+}
+.img-frame.wide { grid-column: 1 / -1; aspect-ratio: 16 / 9; }
+
+/* ── CHAPTER NAV (fixed bottom: Previous / progress / Next) ── */
+.chapter-nav {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  z-index: 200;
+  background: rgba(250,248,243,0.97);
+  backdrop-filter: blur(8px);
+  border-top: 1px solid var(--rule);
+  height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.75rem;
+}
+.chapter-nav-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--forest);
+  padding: 0.6rem 1rem;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  transition: background 0.2s, color 0.2s;
+  white-space: nowrap;
+}
+.chapter-nav-btn:hover { background: var(--forest); color: var(--cream); }
+.chapter-nav-btn.disabled {
+  opacity: 0.35;
+  pointer-events: none;
+}
+.chapter-progress {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+}
+.chapter-progress-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--light);
+}
+.chapter-dots { display: flex; gap: 0.4rem; }
+.chapter-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--rule);
+}
+.chapter-dot.active { background: var(--forest); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 860px) {
+  .chapter-inner { grid-template-columns: 1fr; gap: 2rem; }
+  .chapter-stage.reverse .chapter-inner { direction: ltr; }
+  .chapter-frames { grid-template-columns: 1fr 1fr; }
+  .chapter-nav-btn span.btn-text { display: none; }
+  .util-links { gap: 1rem; }
+}
+@media (max-width: 560px) {
+  .chapter-frames { grid-template-columns: 1fr; }
+  .img-frame.wide { grid-column: auto; }
+  .chapter-stage { padding: 7rem 1.25rem 6.5rem; }
+}

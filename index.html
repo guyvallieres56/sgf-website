@@ -5,697 +5,139 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sustainable Garden Foundation — Co-creating the New World</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --forest:   #1B5E3A;
-      --sage:     #2E7D52;
-      --earth:    #4A3728;
-      --sky:      #1B3A6B;
-      --cream:    #FAF8F3;
-      --parchment:#F0EBE0;
-      --dark:     #1A1A1A;
-      --mid:      #4A4A4A;
-      --light:    #8A8A8A;
-      --rule:     #C8BFA8;
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--cream);
-      color: var(--dark);
-      line-height: 1.7;
-    }
-
-    /* ── NAV ── */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      background: rgba(250,248,243,0.95);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid var(--rule);
-      padding: 0 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 64px;
-    }
-    .nav-brand {
-      font-family: 'Playfair Display', serif;
-      font-size: 1rem;
-      color: var(--forest);
-      font-weight: 700;
-      letter-spacing: 0.02em;
-      text-decoration: none;
-    }
-    .nav-brand span {
-      display: block;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.65rem;
-      font-weight: 400;
-      color: var(--light);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-    }
-    .nav-links a {
-      font-size: 0.8rem;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--mid);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--forest); }
-
-    /* ── HERO ── */
-    .hero {
+    .cover {
+      position: relative;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 8rem 2rem 5rem;
+      padding: 8rem 2rem 6rem;
       max-width: 860px;
       margin: 0 auto;
     }
-    .hero-eyebrow {
+    .cover-eyebrow {
       font-size: 0.7rem;
       font-weight: 600;
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--sage);
       margin-bottom: 2rem;
+      position: relative; z-index: 1;
     }
-    .hero-quote {
+    .cover-quote {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(1.6rem, 4vw, 2.6rem);
       font-style: italic;
+      font-size: clamp(1.4rem, 3.2vw, 2.1rem);
       color: var(--earth);
-      line-height: 1.4;
+      line-height: 1.45;
       margin-bottom: 0.75rem;
+      position: relative; z-index: 1;
     }
-    .hero-attribution {
+    .cover-attribution {
       font-size: 0.8rem;
       color: var(--light);
-      letter-spacing: 0.06em;
-      margin-bottom: 3.5rem;
+      margin-bottom: 2.5rem;
+      position: relative; z-index: 1;
     }
-    .hero-answer {
+    .cover-answer {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(2.8rem, 7vw, 5rem);
       font-weight: 700;
-      color: var(--forest);
-      line-height: 1.1;
-      margin-bottom: 2rem;
-    }
-    .hero-sub {
-      font-size: 1.1rem;
-      color: var(--mid);
-      max-width: 600px;
-      line-height: 1.8;
-      margin-bottom: 3rem;
-    }
-    .hero-cta {
-      display: inline-block;
-      padding: 0.85rem 2rem;
-      background: var(--forest);
-      color: white;
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      text-decoration: none;
-      transition: background 0.2s;
-    }
-    .hero-cta:hover { background: var(--sage); }
-
-    /* ── SECTIONS ── */
-    section {
-      padding: 6rem 2rem;
-      max-width: 860px;
-      margin: 0 auto;
-      border-top: 1px solid var(--rule);
-    }
-    .section-eyebrow {
-      font-size: 0.65rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--sage);
-      margin-bottom: 1.5rem;
-    }
-    .section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.8rem, 4vw, 2.6rem);
-      font-weight: 700;
+      font-size: clamp(2.2rem, 5.5vw, 3.6rem);
+      line-height: 1.15;
       color: var(--dark);
-      line-height: 1.25;
-      margin-bottom: 1.75rem;
-    }
-    .section-title em {
-      font-style: italic;
-      color: var(--forest);
-    }
-    .section-body {
-      font-size: 1rem;
-      color: var(--mid);
-      line-height: 1.85;
       margin-bottom: 1.5rem;
-      max-width: 680px;
+      position: relative; z-index: 1;
     }
-
-    /* ── NORTH STAR ── */
-    .north-star {
-      background: var(--parchment);
-      border-left: 4px solid var(--forest);
-      padding: 2rem 2.5rem;
-      margin: 2.5rem 0;
-    }
-    .north-star p {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.25rem;
-      font-style: italic;
-      color: var(--earth);
-      line-height: 1.6;
-    }
-    .north-star strong {
-      font-style: normal;
-      color: var(--forest);
-    }
-
-    /* ── GOALS GRID ── */
-    .goals-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2.5rem;
-    }
-    .goal-card {
-      padding: 1.75rem;
-      border: 1px solid var(--rule);
-      background: white;
-    }
-    .goal-number {
-      font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--sage);
-      margin-bottom: 0.75rem;
-    }
-    .goal-title {
-      font-family: 'Playfair Display', serif;
+    .cover-sub {
       font-size: 1.05rem;
-      font-weight: 700;
-      color: var(--dark);
-      margin-bottom: 0.75rem;
-      line-height: 1.3;
-    }
-    .goal-body {
-      font-size: 0.88rem;
       color: var(--mid);
-      line-height: 1.75;
+      max-width: 60ch;
+      margin-bottom: 2.75rem;
+      position: relative; z-index: 1;
     }
-
-    /* ── ENERGY LIST ── */
-    .energy-list {
-      margin: 2rem 0;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1rem;
-    }
-    .energy-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.75rem;
-      padding: 1.25rem;
-      background: white;
-      border: 1px solid var(--rule);
-    }
-    .energy-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
+    .cover-sub em { color: var(--forest); font-style: italic; }
+    .cover-cta-row { display: flex; gap: 1rem; flex-wrap: wrap; position: relative; z-index: 1; }
+    .cover-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
       background: var(--forest);
-      margin-top: 0.4rem;
-      flex-shrink: 0;
-    }
-    .energy-text {
-      font-size: 0.88rem;
-      color: var(--mid);
-      line-height: 1.6;
-    }
-    .energy-text strong { color: var(--dark); font-weight: 600; }
-
-    /* ── DIRECTOR SECTION ── */
-    .director-box {
-      background: var(--forest);
-      color: white;
-      padding: 3rem;
-      margin: 2.5rem 0;
-    }
-    .director-box h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.5rem;
-      margin-bottom: 1.25rem;
-      font-weight: 700;
-    }
-    .director-box p {
-      font-size: 0.95rem;
-      line-height: 1.8;
-      opacity: 0.9;
-      margin-bottom: 1rem;
-      max-width: 580px;
-    }
-    .director-list {
-      list-style: none;
-      margin: 1.25rem 0 2rem;
-    }
-    .director-list li {
-      font-size: 0.9rem;
-      padding: 0.4rem 0;
-      opacity: 0.9;
-      padding-left: 1.25rem;
-      position: relative;
-    }
-    .director-list li::before {
-      content: "→";
-      position: absolute;
-      left: 0;
-      color: rgba(255,255,255,0.6);
-    }
-    .director-cta {
-      display: inline-block;
-      padding: 0.75rem 1.75rem;
-      background: white;
-      color: var(--forest);
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
+      color: var(--cream);
       text-decoration: none;
-      transition: opacity 0.2s;
-    }
-    .director-cta:hover { opacity: 0.85; }
-
-    /* ── FOUNDER ── */
-    .founder-block {
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 3rem;
-      align-items: start;
-      margin-top: 2rem;
-    }
-    .founder-label {
-      font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 0.16em;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
       text-transform: uppercase;
-      color: var(--light);
-      margin-bottom: 0.5rem;
-    }
-    .founder-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: var(--forest);
-      margin-bottom: 0.5rem;
-    }
-    .founder-title {
-      font-size: 0.82rem;
-      color: var(--light);
-      line-height: 1.6;
-    }
-    .founder-bio {
-      font-size: 0.95rem;
-      color: var(--mid);
-      line-height: 1.85;
-    }
-    .founder-bio p { margin-bottom: 1rem; }
-
-    /* ── CONTACT ── */
-    .contact-section {
-      background: var(--parchment);
-      padding: 5rem 2rem;
-      border-top: 1px solid var(--rule);
-    }
-    .contact-inner {
-      max-width: 860px;
-      margin: 0 auto;
-      text-align: center;
-    }
-    .contact-inner .section-eyebrow { text-align: center; }
-    .contact-inner .section-title { text-align: center; margin-left: auto; margin-right: auto; }
-    .contact-inner .section-body { text-align: center; margin-left: auto; margin-right: auto; }
-    .contact-form {
-      margin-top: 2.5rem;
-      display: grid;
-      gap: 1rem;
-      max-width: 520px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .contact-form input,
-    .contact-form select,
-    .contact-form textarea {
-      width: 100%;
-      padding: 0.85rem 1rem;
-      border: 1px solid var(--rule);
-      background: white;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.9rem;
-      color: var(--dark);
-      outline: none;
-      transition: border-color 0.2s;
-    }
-    .contact-form input:focus,
-    .contact-form select:focus,
-    .contact-form textarea:focus { border-color: var(--forest); }
-    .contact-form textarea { height: 140px; resize: vertical; }
-    .contact-submit {
-      padding: 0.9rem 2rem;
-      background: var(--forest);
-      color: white;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.8rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      border: none;
-      cursor: pointer;
+      padding: 1rem 1.75rem;
+      border-radius: 3px;
       transition: background 0.2s;
     }
-    .contact-submit:hover { background: var(--sage); }
-
-    /* ── FOOTER ── */
-    footer {
-      border-top: 1px solid var(--rule);
-      padding: 2.5rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 860px;
-      margin: 0 auto;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-    .footer-brand {
-      font-family: 'Playfair Display', serif;
-      font-size: 0.95rem;
+    .cover-cta:hover { background: var(--sage); }
+    .cover-cta.secondary {
+      background: transparent;
       color: var(--forest);
-      font-weight: 700;
+      border: 1px solid var(--rule);
     }
-    .footer-tagline {
-      font-size: 0.75rem;
+    .cover-cta.secondary:hover { background: var(--parchment); }
+    .cover-chapters {
+      margin-top: 3.5rem;
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      position: relative; z-index: 1;
+    }
+    .cover-chapter-tag {
+      font-size: 0.72rem;
       color: var(--light);
-      margin-top: 0.25rem;
+      border-left: 2px solid var(--rule);
+      padding-left: 0.6rem;
     }
-    .footer-copy {
-      font-size: 0.75rem;
-      color: var(--light);
-      text-align: right;
-    }
-
-    /* ── UBUNTU PULL QUOTE ── */
-    .pull-quote {
-      text-align: center;
-      padding: 3rem 2rem;
-      border-top: 1px solid var(--rule);
-      border-bottom: 1px solid var(--rule);
-      margin: 3rem 0;
-    }
-    .pull-quote p {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.2rem, 3vw, 1.7rem);
-      font-style: italic;
-      color: var(--earth);
-      line-height: 1.5;
-      margin-bottom: 0.75rem;
-    }
-    .pull-quote cite {
-      font-size: 0.75rem;
-      color: var(--light);
-      font-style: normal;
-      letter-spacing: 0.08em;
-    }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 640px) {
-      .nav-links { display: none; }
-      .founder-block { grid-template-columns: 1fr; gap: 1.5rem; }
-      footer { flex-direction: column; text-align: center; }
-      .footer-copy { text-align: center; }
-      .director-box { padding: 2rem; }
-    }
+    .cover-chapter-tag strong { color: var(--mid); display: block; font-size: 0.78rem; }
   </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <a href="#" class="nav-brand">
-    SGF
-    <span>Sustainable Garden Foundation</span>
-  </a>
-  <ul class="nav-links">
-    <li><a href="#vision">Vision</a></li>
-    <li><a href="#goals">Goals</a></li>
-    <li><a href="#oasis">Oasis</a></li>
-    <li><a href="#directors">Directors</a></li>
-    <li><a href="#founder">Founder</a></li>
-    <li><a href="#contact">Contact</a></li>
+<nav class="util-bar">
+  <a href="index.html" class="util-brand">SGF · The Journey</a>
+  <ul class="util-links">
+    <li><a href="documents.html">Documents</a></li>
+    <li><a href="forms.html">Forms</a></li>
+    <li><a href="donate.html" class="donate-link">Donate</a></li>
   </ul>
 </nav>
 
-<!-- HERO -->
-<div class="hero">
-  <p class="hero-eyebrow">Sustainable Garden Foundation &nbsp;·&nbsp; North Vancouver, BC &nbsp;·&nbsp; 2026</p>
-  <p class="hero-quote">&ldquo;You never change things by fighting the existing reality.<br>To change something, build a new model<br>that makes the existing model obsolete.&rdquo;</p>
-  <p class="hero-attribution">&mdash; Buckminster Fuller</p>
-  <h1 class="hero-answer">We are building the new model.</h1>
-  <p class="hero-sub">The Sustainable Garden Foundation is building a network of intentional communities across fire-affected regions of British Columbia, Oregon, and California — powered by clean energy, governed by consensus, and rooted in the Ubuntu principle: <em>I am because we are.</em></p>
-  <a href="#vision" class="hero-cta">Discover the Vision</a>
-</div>
-
-<!-- VISION -->
-<section id="vision">
-  <p class="section-eyebrow">Who We Are</p>
-  <h2 class="section-title">A foundation for the <em>New World</em></h2>
-  <p class="section-body">The Sustainable Garden Foundation (SGF) is a Canadian non-profit foundation in formation whose purpose is to design, seed, and support a network of intentional communities — called Oasis communities — built on Ubuntu principles, ecological restoration, and a vision of shared human flourishing.</p>
-  <p class="section-body">SGF is the institutional backbone of the Blue Dot Project, a visionary quadrilogy and civic initiative that asks a single, urgent question: how do we co-create the New World — together, now?</p>
-
-  <div class="north-star">
-    <p>The Pale Blue Dot — as Carl Sagan so powerfully reminded us — is our only home.<br><strong>The SGF exists to help humanity act like it.</strong></p>
+<div class="cover">
+  <div class="contour-field">
+    <svg viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <path d="M -20 480 Q 150 420 300 470 T 620 440 T 900 480" fill="none" stroke="#1B5E3A" stroke-width="1.5"/>
+      <path d="M -20 510 Q 160 450 320 500 T 640 470 T 900 510" fill="none" stroke="#1B5E3A" stroke-width="1.5"/>
+      <path d="M -20 540 Q 170 480 340 530 T 660 500 T 900 540" fill="none" stroke="#1B5E3A" stroke-width="1.5"/>
+      <path d="M -20 570 Q 180 510 360 560 T 680 530 T 900 570" fill="none" stroke="#1B5E3A" stroke-width="1.5"/>
+      <path d="M -20 450 Q 140 390 280 440 T 600 410 T 900 450" fill="none" stroke="#2E7D52" stroke-width="1.5"/>
+      <path d="M -20 420 Q 130 360 260 410 T 580 380 T 900 420" fill="none" stroke="#2E7D52" stroke-width="1.5"/>
+    </svg>
   </div>
 
-  <p class="section-body">We are living through a convergence of ecological, social, and technological disruptions that demand new institutions — not incremental reform, but the deliberate co-creation of what comes next. The SGF is positioned to become a catalyst: seeding the first Oasis sites in British Columbia, developing the governance and design frameworks that allow the model to replicate, and demonstrating — through lived proof — that another way is not only possible but already underway.</p>
-</section>
+  <p class="cover-eyebrow">Sustainable Garden Foundation &nbsp;·&nbsp; North Vancouver, BC &nbsp;·&nbsp; 2026</p>
+  <p class="cover-quote">&ldquo;You never change things by fighting the existing reality.<br>To change something, build a new model<br>that makes the existing model obsolete.&rdquo;</p>
+  <p class="cover-attribution">&mdash; Buckminster Fuller</p>
+  <h1 class="cover-answer">We are building the new model.</h1>
+  <p class="cover-sub">The Sustainable Garden Foundation is building a network of self-sufficient Oasis communities on disaster-affected and marginal land — governed by consensus, powered by clean energy, and rooted in the Ubuntu principle: <em>I am because we are.</em></p>
 
-<!-- GOALS -->
-<section id="goals">
-  <p class="section-eyebrow">The Oasis Project</p>
-  <h2 class="section-title">Seven goals. <em>One vision.</em></h2>
-  <p class="section-body">The conditions for human flourishing are already known. What remains is the courage to build them. The Oasis Project pursues seven interconnected goals that together form a single, coherent vision.</p>
-
-  <div class="goals-grid">
-    <div class="goal-card">
-      <p class="goal-number">Goal 01</p>
-      <h3 class="goal-title">A Living Microcosm of Ubuntu Society</h3>
-      <p class="goal-body">To demonstrate, in lived daily reality, what human society becomes when the Ubuntu Principle governs all relations — economic, social, ecological, and civic.</p>
-    </div>
-    <div class="goal-card">
-      <p class="goal-number">Goal 02</p>
-      <h3 class="goal-title">Reintegration with Dignity and Purpose</h3>
-      <p class="goal-body">To offer individuals displaced by automation or environmental disaster not merely shelter, but purpose. The Oasis does not warehouse the displaced. It invites them home.</p>
-    </div>
-    <div class="goal-card">
-      <p class="goal-number">Goal 03</p>
-      <h3 class="goal-title">Land Recovery and Ecological Restoration</h3>
-      <p class="goal-body">To restore degraded, disaster-affected land to ecological health. The Oasis model heals the land and the people simultaneously.</p>
-    </div>
-    <div class="goal-card">
-      <p class="goal-number">Goal 04</p>
-      <h3 class="goal-title">Proof of Concept for Ubuntu Governance</h3>
-      <p class="goal-body">To validate, through measurable lived experience, that Ubuntu-principled governance is not only possible but demonstrably superior to extractive and hierarchical models.</p>
-    </div>
-    <div class="goal-card">
-      <p class="goal-number">Goal 05</p>
-      <h3 class="goal-title">Long-Term Sustainability</h3>
-      <p class="goal-body">To design each community as a fully self-sustaining system — energetically, economically, and ecologically — ensuring it endures across generations without external subsidy.</p>
-    </div>
-    <div class="goal-card">
-      <p class="goal-number">Goal 06</p>
-      <h3 class="goal-title">Natural Scalability</h3>
-      <p class="goal-body">When an Oasis reaches its optimal population, the natural next step is seeding a neighbouring Oasis — until a federation of communities forms what the SGF calls the New World.</p>
-    </div>
-    <div class="goal-card" style="grid-column: 1 / -1;">
-      <p class="goal-number">Goal 07</p>
-      <h3 class="goal-title">Indigenous Reconciliation Through Restored Land and Sovereignty</h3>
-      <p class="goal-body">Words of reconciliation cannot restore what was taken. The Oasis Project offers something more honest: a concrete act of return. First Nations ancestral wisdom is not a footnote to the model. It is one of its foundational pillars.</p>
-    </div>
-  </div>
-</section>
-
-<!-- OASIS -->
-<section id="oasis">
-  <p class="section-eyebrow">Energy &amp; Infrastructure</p>
-  <h2 class="section-title">Designed for <em>self-sufficiency</em></h2>
-  <p class="section-body">Each Oasis community generates its own energy through a diversified on-site stack — no dependency on any single external provider. The grid is retained as emergency backup only.</p>
-
-  <div class="energy-list">
-    <div class="energy-item">
-      <div class="energy-dot"></div>
-      <p class="energy-text"><strong>Solar PV</strong> — ground-mounted and rooftop arrays; primary generation layer</p>
-    </div>
-    <div class="energy-item">
-      <div class="energy-dot"></div>
-      <p class="energy-text"><strong>Wind turbines</strong> — co-primary with solar; seasonal complementarity</p>
-    </div>
-    <div class="energy-item">
-      <div class="energy-dot"></div>
-      <p class="energy-text"><strong>Micro-hydro</strong> — run-of-river where terrain allows; particularly strong at BC sites</p>
-    </div>
-    <div class="energy-item">
-      <div class="energy-dot"></div>
-      <p class="energy-text"><strong>Biogas</strong> — anaerobic digestion of community organic waste; supplementary baseload</p>
-    </div>
-    <div class="energy-item">
-      <div class="energy-dot"></div>
-      <p class="energy-text"><strong>Sodium-ion storage</strong> — 50-year infrastructure compatibility; long-duration buffer</p>
-    </div>
-    <div class="energy-item">
-      <div class="energy-dot"></div>
-      <p class="energy-text"><strong>Thermal &amp; supercapacitor</strong> — layered redundancy for grid-independent reliability</p>
-    </div>
-    <div class="energy-item">
-      <div class="energy-dot"></div>
-      <p class="energy-text"><strong>Ground-source heat pump + geothermal exchanger</strong> — fire-immune, combustion-free heating and cooling at 300–500% efficiency; powered entirely by on-site renewable generation</p>
-    </div>
+  <div class="cover-cta-row">
+    <a href="chapter1.html" class="cover-cta">Begin the Journey &rarr;</a>
+    <a href="donate.html" class="cover-cta secondary">Support the First Oasis</a>
   </div>
 
-  <div class="pull-quote">
-    <p>"Scalability is not a design feature.<br>It is the natural consequence of success."</p>
-    <cite>— Blue Dot Project, Oasis Goals V1</cite>
-  </div>
-
-  <p class="section-body">Oasis communities will operate across multiple archetypes: Agrarian, Care and Learning, High-Tech Research, Water, Energy, Healing, and Arts and Culture — forming a living, breathing ecosystem of the New World in miniature. Each successful Oasis seeds the next. When communities find one another, they federate into a New World cluster: a voluntary, Ubuntu-governed network of thriving, self-sufficient communities.</p>
-</section>
-
-<!-- DIRECTORS -->
-<section id="directors">
-  <p class="section-eyebrow">An Invitation</p>
-  <h2 class="section-title">Become a <em>Founding Director</em></h2>
-  <p class="section-body">We are seeking two qualified and committed individuals to serve as Founding Directors of the SGF alongside its founder, Guy J.L. Vallières. We are not looking for passive signatories — we are looking for people who believe that the wisest act available to us right now is to build: carefully, joyfully, and together.</p>
-
-  <div class="director-box">
-    <h3>As a Founding Director, you will:</h3>
-    <ul class="director-list">
-      <li>Help establish the legal and governance foundation of the SGF under the BC Societies Act</li>
-      <li>Contribute your expertise, networks, and perspective to the Board</li>
-      <li>Shape the strategic direction of the Oasis Project in its formative phase</li>
-      <li>Serve as a witness to — and champion of — a model of civilisational renewal</li>
-      <li>Guide the SGF toward federal charitable registration with the CRA</li>
-    </ul>
-    <p>This is early-stage work. It is also historic work. The first Oasis communities will be built on land scarred by wildfire — demonstrating that resilience is not a government program. It is a design principle.</p>
-    <a href="#contact" class="director-cta">Express Your Interest</a>
-  </div>
-</section>
-
-<!-- FOUNDER -->
-<section id="founder">
-  <p class="section-eyebrow">The Founder</p>
-  <h2 class="section-title">Guy J.L. <em>Vallières</em></h2>
-  <div class="founder-block">
-    <div>
-      <p class="founder-label">Background</p>
-      <p class="founder-name">Guy J.L. Vallières</p>
-      <p class="founder-title">
-        Retired Engineer &amp; Hydrologist<br>
-        36 years, Environment and Climate Change Canada<br>
-        Founder, Sustainable Garden Foundation<br>
-        Author, Blue Dot Project Quadrilogy<br>
-        North Vancouver, BC
-      </p>
-    </div>
-    <div class="founder-bio">
-      <p>Guy J.L. Vallières is a retired engineer and hydrologist with 36 years of service at Environment and Climate Change Canada, specialising in flood and drought analysis across British Columbia and the Yukon — establishing recurrence frequencies for extreme water events and helping communities understand what the land can and cannot sustain.</p>
-      <p>He is a French Canadian pacifist, lifelong seeker, and member of the Universal Gospel Choir of Vancouver. His intellectual and spiritual influences include Carl Sagan, Buckminster Fuller, St. Francis of Assisi, and Jean Houston. The Blue Dot Project is the culmination of a life spent at the intersection of systems thinking, ecological science, and the deepest questions of human purpose.</p>
-      <p>Guy is a stroke survivor. He presents through an AI voice because he wants his ideas to reach you as clearly as they deserve — not because he has anything to hide. He is proud of the progress he has made, and more certain than ever that the New World is not coming. It is being built.</p>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<div class="contact-section" id="contact">
-  <div class="contact-inner">
-    <p class="section-eyebrow">Get Involved</p>
-    <h2 class="section-title">Let's build the <em>New World</em> together</h2>
-    <p class="section-body">Whether you are a potential Founding Director, a prospective donor, a community member, or simply someone who believes another way is possible — we would like to hear from you.</p>
-
-    <form class="contact-form" onsubmit="handleSubmit(event)">
-      <input type="text" placeholder="Your full name" required />
-      <input type="email" placeholder="Your email address" required />
-      <select required>
-        <option value="" disabled selected>I am interested as a…</option>
-        <option value="director">Founding Director</option>
-        <option value="donor">Donor or Funding Partner</option>
-        <option value="community">Future Community Member</option>
-        <option value="volunteer">Volunteer or Professional Partner</option>
-        <option value="media">Media or Researcher</option>
-        <option value="other">Other</option>
-      </select>
-      <textarea placeholder="Tell us briefly about yourself and your interest in the SGF…"></textarea>
-      <button type="submit" class="contact-submit">Send Your Message</button>
-    </form>
-    <p style="font-size:0.78rem; color: var(--light); margin-top:1.5rem;">
-      Or write directly to: <strong style="color:var(--forest);">info@sustainablegardenfoundation.org</strong>
-    </p>
+  <div class="cover-chapters">
+    <div class="cover-chapter-tag"><strong>01</strong>The Need</div>
+    <div class="cover-chapter-tag"><strong>02</strong>The Systemic Causes</div>
+    <div class="cover-chapter-tag"><strong>03</strong>The New Model</div>
+    <div class="cover-chapter-tag"><strong>04</strong>SGF's Role</div>
   </div>
 </div>
-
-<!-- FOOTER -->
-<footer>
-  <div>
-    <p class="footer-brand">Sustainable Garden Foundation</p>
-    <p class="footer-tagline">Blue Dot Project — Co-creating the New World</p>
-  </div>
-  <div class="footer-copy">
-    <p>North Vancouver, British Columbia, Canada</p>
-    <p style="margin-top:0.25rem;">© 2026 Guy J.L. Vallières. All rights reserved.</p>
-  </div>
-</footer>
-
-<script>
-  function handleSubmit(e) {
-    e.preventDefault();
-    const btn = e.target.querySelector('.contact-submit');
-    btn.textContent = 'Message Sent — Thank You';
-    btn.style.background = '#2E7D52';
-    btn.disabled = true;
-  }
-
-  // Smooth nav highlight on scroll
-  const sections = document.querySelectorAll('section, .contact-section');
-  const navLinks = document.querySelectorAll('.nav-links a');
-  window.addEventListener('scroll', () => {
-    let current = '';
-    sections.forEach(s => {
-      if (window.scrollY >= s.offsetTop - 100) current = s.id;
-    });
-    navLinks.forEach(a => {
-      a.style.color = a.getAttribute('href') === '#' + current ? '#1B5E3A' : '';
-    });
-  });
-</script>
 
 </body>
 </html>

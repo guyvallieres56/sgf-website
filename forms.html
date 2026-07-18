@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Get Involved | Sustainable Garden Foundation</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .util-page { max-width: 640px; margin: 0 auto; padding: 8.5rem 2rem 6rem; }
+    .util-page h1 { font-family:'Playfair Display',serif; font-size:clamp(1.8rem,3.5vw,2.6rem); margin-bottom:1rem; }
+    .util-page > p.lede { font-size:1.05rem; color:var(--mid); margin-bottom:2.5rem; }
+    .contact-form { display:flex; flex-direction:column; gap:1rem; }
+    .contact-form input, .contact-form select, .contact-form textarea {
+      font-family:'Inter',sans-serif; font-size:0.95rem; padding:0.85rem 1rem;
+      border:1px solid var(--rule); border-radius:3px; background:var(--parchment); color:var(--dark);
+    }
+    .contact-form textarea { min-height:120px; resize:vertical; }
+    .contact-submit {
+      background:var(--forest); color:var(--cream); border:none; padding:1rem;
+      font-size:0.85rem; font-weight:600; letter-spacing:0.06em; text-transform:uppercase;
+      border-radius:3px; cursor:pointer; transition:background 0.2s;
+    }
+    .contact-submit:hover { background:var(--sage); }
+  </style>
+</head>
+<body>
+
+<nav class="util-bar">
+  <a href="index.html" class="util-brand">SGF · The Journey</a>
+  <ul class="util-links">
+    <li><a href="documents.html">Documents</a></li>
+    <li><a href="forms.html">Forms</a></li>
+    <li><a href="donate.html" class="donate-link">Donate</a></li>
+  </ul>
+</nav>
+
+<div class="util-page">
+  <h1>Let's build the <em style="color:var(--forest); font-style:italic;">New World</em> together</h1>
+  <p class="lede">Whether you are a potential Founding Director, a prospective donor, a future community member, or simply someone who believes another way is possible — we would like to hear from you.</p>
+
+  <form class="contact-form" onsubmit="handleSubmit(event)">
+    <input type="text" placeholder="Your full name" required />
+    <input type="email" placeholder="Your email address" required />
+    <select required>
+      <option value="" disabled selected>I am interested as a…</option>
+      <option value="director">Founding Director</option>
+      <option value="donor">Donor or Funding Partner</option>
+      <option value="community">Future Community Member</option>
+      <option value="volunteer">Volunteer or Professional Partner</option>
+      <option value="media">Media or Researcher</option>
+      <option value="other">Other</option>
+    </select>
+    <textarea placeholder="Tell us briefly about yourself and your interest in the SGF…"></textarea>
+    <button type="submit" class="contact-submit">Send Your Message</button>
+  </form>
+  <p style="font-size:0.78rem; color: var(--light); margin-top:1.5rem;">
+    Or write directly to: <strong style="color:var(--forest);">info@sustainablegardenfoundation.org</strong>
+  </p>
+  <p style="font-size:0.72rem; color: var(--light); margin-top:2rem; font-style:italic;">
+    Note to site owner: this form currently has no backend handler — connect it to Formspree, Netlify Forms, or a mailto action before launch.
+  </p>
+</div>
+
+<script>
+  function handleSubmit(e) {
+    e.preventDefault();
+    alert('Thank you — form submission is not yet connected. Please email info@sustainablegardenfoundation.org directly for now.');
+  }
+</script>
+
+</body>
+</html>
